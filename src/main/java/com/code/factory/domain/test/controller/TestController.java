@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.code.factory.domain.test.exception.CustomerNameNullPointException;
 import com.code.factory.domain.test.service.TestService;
 import com.code.factory.global.response.DataResponse;
 
@@ -28,5 +29,10 @@ public class TestController {
 	public DataResponse<String> testExhaustiveSearch() {
 		String response = testService.getExhaustiveSearch();
 		return DataResponse.of(true, HttpStatus.OK, response);
+	}
+
+	@GetMapping("/error")
+	public DataResponse<String> testError() throws CustomerNameNullPointException {
+		throw new CustomerNameNullPointException();
 	}
 }
