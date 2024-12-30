@@ -1,4 +1,4 @@
-package com.code.factory.domain.test.exception;
+package com.code.factory.domain.etc.exception;
 
 import com.code.factory.global.exceptionHandler.BusinessException;
 
